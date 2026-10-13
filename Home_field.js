@@ -60,8 +60,20 @@ L.easyButton(('<img src="Home_icon_black.png", height=70%>'), function () {
 }, "Home").addTo(map);
 
 // Locate control //
-console.log(L.control.locate);
-L.control.locate().addTo(map);
+L.control.locate({
+  position: 'topleft',
+  setView: 'untilPan',
+  keepCurrentZoomLevel: true,
+  showPopup: false,
+  drawCircle: true,
+  drawMarker: true,
+  locateOptions: {
+    enableHighAccuracy: true,
+    watch: true,
+    maximumAge: 1000,
+    timeout: 15000
+  }
+}).addTo(map);
 
 
 
